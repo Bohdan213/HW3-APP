@@ -107,7 +107,7 @@ function submitFormManager(event) {
   const distributorId = document.getElementById('distributor_id').value;
   const payload = {distributorId};
 
-  fetch('/get_manager_medicines', {
+  fetch('/get_distributor_medicines', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(payload),

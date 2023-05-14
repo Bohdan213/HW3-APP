@@ -11,6 +11,11 @@ def manage():
     return app.send_static_file('managing.html')
 
 
+@app.route('/')
+def main():
+    return app.send_static_file('main.html')
+
+
 @app.route('/serving')
 def serve():
     return app.send_static_file('serving.html')
@@ -21,8 +26,8 @@ def review():
     return app.send_static_file('reviewing.html')
 
 
-@app.route('/get_manager_medicines', methods=['POST'])
-def get_manager_medicines():
+@app.route('/get_distributor_medicines', methods=['POST'])
+def get_distributor_medicines():
     distributor_id = request.json['distributorId']
     query = "SELECT * FROM distributor as d WHERE d.distributorId = %s"
     values = (distributor_id, )
@@ -33,7 +38,7 @@ def get_manager_medicines():
         result = container.execute_query(query, values)
         return make_response(jsonify({'status': result}), 202)
     else:
-        return make_response(jsonify({'status': 'no such order'}), 202)
+        return make_response(jsonify({'status': 'no such distributor'}), 202)
 
 
 @app.route('/update_order', methods=['POST'])
