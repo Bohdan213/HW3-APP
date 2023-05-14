@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="/static/index.js" defer></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1>Add Customer</h1>
+    <form onsubmit="submitFormCustomerAdd(event)">
+          <label for="customer_name_add">Customer Name:</label>
+          <input type="text" id="customer_name_add" name="customer_name"><br>
+
+          <label for="customer_surname_add">Customer Surname:</label>
+          <input type="text" id="customer_surname_add" name="customer_surname"><br>
+
+          <label for="shift_team_add">Shift team:</label>
+          <input type="text" id="shift_team_add" name="shift_team_id"><br>
+
+          <input type="submit" value="Submit">
+    </form>
+
+    <h1>Update customer order status</h1>
+    <form onsubmit="submitFormCustomerOrderUpdate(event)">
+          <label for="order_id">Customer order id:</label>
+          <input type="text" id="order_id" name="order_id"><br>
+
+          <label for="status">Status:</label>
+          <input type="text" id="status" name="status"><br>
+
+          <input type="submit" value="Submit">
+    </form>
+
+    <h1>Output</h1>
+        <div id="output"></div>
+</body>
+</html>

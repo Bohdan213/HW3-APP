@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="/static/index.js" defer></script>
+    <title>Review System</title>
+</head>
+<body>
+    <h1>Add a Review</h1>
+    <form onsubmit="submitFormReviewAdd(event)">
+      <label for="customer_name_add">Customer Name:</label>
+      <input type="text" id="customer_name_add" name="customer_name"><br>
+
+      <label for="customer_surname_add">Customer Surname:</label>
+      <input type="text" id="customer_surname_add" name="customer_surname"><br>
+
+      <label for="review_text">Review:</label>
+      <textarea id="review_text" name="review_text"></textarea><br>
+
+      <input type="submit" value="Submit">
+    </form>
+
+
+    <h1>Find Reviews</h1>
+    <form onsubmit="submitFormReviewFind(event)">
+        <label for="customer_name_find">Customer Name:</label>
+        <input type="text" id="customer_name_find" name="customer_name"><br>
+
+        <label for="customer_surname_find">Customer Surname:</label>
+        <input type="text" id="customer_surname_find" name="customer_surname"><br>
+
+        <input type="submit" value="Search">
+    </form>
+
+    <h1>Delete Reviews</h1>
+    <form onsubmit="submitFormReviewDelete(event)">
+        <label for="customer_name_delete">Customer Name:</label>
+        <input type="text" id="customer_name_delete" name="customer_name"><br>
+
+        <label for="customer_surname_delete">Customer Surname:</label>
+        <input type="text" id="customer_surname_delete" name="customer_surname"><br>
+
+        <input type="submit" value="Search">
+    </form>
+
+    <h1>Output</h1>
+    <div id="output"></div>
+</body>
+</html>
