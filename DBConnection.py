@@ -32,17 +32,3 @@ class Connection(Singleton):
         self.__conn.commit()
         return result
 
-# c = Connection()
-# review_text = "good, but not very goog"
-# customer_name = "Ashley"
-# customer_surname = "Garcia"
-# query = "SELECT customerId FROM customer as c WHERE c.firstName = %s AND c.lastName = %s LIMIT 1"
-# values = (customer_name, customer_surname)
-# result = c.execute_query(query, values)
-# print(result)
-# if result:
-#     customer_id = result[0][0]
-#     query = f"INSERT INTO review (reviewText, customerId) VALUES (%s, %s)"
-#     values = (review_text, customer_id)
-#     result = c.execute_query(query, values)
-#     print(result)

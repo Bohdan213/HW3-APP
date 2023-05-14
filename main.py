@@ -21,6 +21,21 @@ def review():
     return app.send_static_file('reviewing.html')
 
 
+@app.route('/get_manager_medicines', methods=['POST'])
+def get_manager_medicines():
+    distributor_id = request.json['distributorId']
+    query = "SELECT * FROM distributor as d WHERE d.distributorId = %s"
+    values = (distributor_id, )
+    result = container.execute_query(query, values)
+    if result:
+        query = "SELECT medicineName FROM hw2.medicine WHERE distributorId = %s AND orderId IS NOT NULL;"
+        values = (distributor_id, )
+        result = container.execute_query(query, values)
+        return make_response(jsonify({'status': result}), 202)
+    else:
+        return make_response(jsonify({'status': 'no such order'}), 202)
+
+
 @app.route('/update_order', methods=['POST'])
 def update_order():
     order_id = request.json['orderId']
@@ -93,12 +108,9 @@ def delete_review():
 def find_review():
     customer_name = request.json['customerName']
     customer_surname = request.json['customerSurname']
-    print(customer_name)
-    print(customer_surname)
     query = "SELECT customerId FROM customer WHERE firstName = %s AND lastName = %s"
     values = (customer_name, customer_surname)
     result = container.execute_query(query, values)
-    print(result)
     if result:
         customer_id = result[0][0]
         query = "SELECT reviewText FROM review WHERE customerId = %s"

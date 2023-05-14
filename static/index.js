@@ -101,3 +101,21 @@ function submitFormCustomerOrderUpdate(event) {
     })
     .catch((error) => console.error(error));
 }
+
+function submitFormManager(event) {
+  event.preventDefault();
+  const distributorId = document.getElementById('distributor_id').value;
+  const payload = {distributorId};
+
+  fetch('/get_manager_medicines', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      const outputDiv = document.getElementById('output');
+      outputDiv.innerHTML = data["status"];
+    })
+    .catch((error) => console.error(error));
+}
